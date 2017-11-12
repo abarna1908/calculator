@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: rgba(255,255,250,0.5);
+}
+#calculator{
+    width: 30%;
+    height: 70%;
+    margin: auto;
+    margin-top: 40px;
+    display: block;
+    font-size: 2em;
+    color: #fff;
+}
+#output{
+    width: 100%;
+    height: 25%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background: rgba(41, 78, 137, 0.5);
+}
+#text-output{
+    float: left;
+    margin-right: 10px;
+    width: 70%;
+    text-align: right;
+    line-height: 50px;
+    transform: translateY(50%); 
+}
+#microphone{
+    display: block;
+    float: right;
+    height: 50%;
+    width: 13%;
+    transform: translateY(50%);
+    margin-right: 20px;
+    opacity: 0.7;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(73,73,73,.5);
+    border-radius: 50%;    
+}
+.record{
+    animation: micAnim 1.5s infinite;
+}
+#microphone:hover{
+    opacity: 1;
+}
+#input{
+    width: 100%;
+    height: 75%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: rgb(89, 119, 168);
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(4, 1fr);
+}
+.operator, .number, .symbol{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    cursor: pointer;
+}
+.operator, .symbol{
+    color: rgba(255,255,255,0.7);
+    background-color: rgb(89, 119, 168);
+}
+.last{
+    grid-column: 3 / 5;
+}
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: rgb(51, 71, 104);
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+@keyframes micAnim {
+    0%{
+        transform: scale(0.9) translateY(50%);
+        opacity: 1;
+    }
+    70%{
+        transform: scale(1) translateY(50%);
+        box-shadow: 0 0 0 20px rgba(73,73,73,0.2);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(0.9) translateY(50%);
+        box-shadow: 0 0 0 0 rgba(73,73,73,0);
+        opacity: 1;
+    }
+}
+
